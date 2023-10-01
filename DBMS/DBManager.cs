@@ -39,6 +39,8 @@
                 return false;
             if (db.Tables.Count <= 0) 
                 return false;
+            if (db.Tables[tIndex].Columns.Where(x => x.ColName == cname).Count() > 0)
+                return false;
 
             db.Tables[tIndex].Columns.Add(new Column(cname, ctype));
             for (int i = 0; i < db.Tables[tIndex].Rows.Count; ++i)
@@ -174,6 +176,82 @@
             foreach (Table t in db.Tables)
                 tables.Add(t.TableName);
             return tables;
+        }
+
+        public List<string> GetTablesFieldsList(string tname1, string tname2)
+        {
+            var table1 = db.Tables.Where(x => x.TableName == tname1).FirstOrDefault();
+            var table2 = db.Tables.Where(x => x.TableName == tname2).FirstOrDefault();
+            List<string> colNames = new List<string>();
+            if (table1 != null && table2 != null)
+            {
+                if (table1.Columns.Count > 0 && table2.Columns.Count > 0)
+                    colNames = table1.Columns.Select(x => x.ColName).Intersect(table2.Columns.Select(x => x.ColName)).ToList();
+            }
+            return colNames;
+        }
+
+        public Table UnionOfTables(string tname1, string tname2, string field)
+        {
+            var table1 = db.Tables.Where(x => x.TableName == tname1).FirstOrDefault();
+            var table2 = db.Tables.Where(x => x.TableName == tname2).FirstOrDefault();
+            Table table = new Table("Union");
+            if (table1 != null && table2 != null)
+            {
+                if (table1.Columns.Select(x => x.ColName).Contains(field) && table2.Columns.Select(x => x.ColName).Contains(field))
+                {
+                    table.Columns = table1.Columns.Union(table2.Columns).ToList();
+                    var col1 = table1.Columns.Where(x => x.ColName == field).FirstOrDefault();
+                    var col2 = table2.Columns.Where(x => x.ColName == field).FirstOrDefault();
+                    if (col1 != null && col2 != null) 
+                    {
+                        var ind1 = table1.Columns.IndexOf(col1);
+                        var ind2 = table2.Columns.IndexOf(col2);
+                        if (ind1 != -1 && ind2 != -1)
+                        {
+                            foreach (var row1 in table1.Rows)
+                            {
+                                var value1 = row1.RowValues[ind1];
+                                foreach (var row2 in table2.Rows)
+                                {
+                                    var value2 = row2.RowValues[ind2];
+                                    if (value1 == value2)
+                                    {
+                                        var newRow = new Row();
+                                        newRow.RowValues.AddRange(row1.RowValues);
+                                        newRow.RowValues.AddRange(row2.RowValues);
+                                        table.Rows.Add(newRow);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            int columnIndexToRemove = -1;
+            for (int i = 0; i < table.Columns.Count; i++)
+            {
+                if (table.Columns[i].ColName == field)
+                {
+                    columnIndexToRemove = i;
+                    break;
+                }
+            }
+            if (columnIndexToRemove != -1)
+            {
+                table.Columns.RemoveAt(columnIndexToRemove);
+                foreach (var row in table.Rows)
+                {
+                    if (row.RowValues.Count > columnIndexToRemove)
+                    {
+                        row.RowValues.RemoveAt(columnIndexToRemove);
+                    }
+                }
+            }
+
+            db.Tables.Add(table);
+            return table;
         }
     }
 }

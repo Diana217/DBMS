@@ -4,8 +4,8 @@
     {
         public override bool Validate(string value)
         {
-            string[] buf = value.Split(',');
-            if (buf.Length == 0) 
+            string[] buf = value?.Split(',');
+            if (buf != null && buf.Length == 0) 
                 return false;
             return true;
         }

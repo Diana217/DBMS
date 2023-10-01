@@ -31,36 +31,53 @@
             tabControl = new TabControl();
             tabPage1 = new TabPage();
             tabPage2 = new TabPage();
-            butOpen = new Button();
             butCreate = new Button();
             butAddColumn = new Button();
-            butAddRow = new Button();
             tbCreateDBName = new TextBox();
-            butAddTable = new Button();
             tbAddTableName = new TextBox();
             dataGridView = new DataGridView();
             cbTypes = new ComboBox();
             tbAddColumnName = new TextBox();
             butDeleteColumn = new Button();
             butDeleteRow = new Button();
-            butDeleteTable = new Button();
             sfdSaveDB = new SaveFileDialog();
-            butSaveDB = new Button();
             ofdOpenDB = new OpenFileDialog();
             label1 = new Label();
             lblDbName = new Label();
             ofdChooseFilePath = new OpenFileDialog();
+            menuStrip1 = new MenuStrip();
+            openToolStripMenuItem = new ToolStripMenuItem();
+            createTSMI = new ToolStripMenuItem();
+            openTSMI = new ToolStripMenuItem();
+            saveTSMI = new ToolStripMenuItem();
+            tableToolStripMenuItem = new ToolStripMenuItem();
+            createToolStripMenuItem = new ToolStripMenuItem();
+            deleteToolStripMenuItem = new ToolStripMenuItem();
+            addColumnToolStripMenuItem = new ToolStripMenuItem();
+            addRowToolStripMenuItem = new ToolStripMenuItem();
+            unionOfTablesToolStripMenuItem = new ToolStripMenuItem();
+            fontDialog1 = new FontDialog();
+            butCreateTable = new Button();
+            cbTable1 = new ComboBox();
+            lblTable1 = new Label();
+            lblTable2 = new Label();
+            cbTable2 = new ComboBox();
+            butUnion = new Button();
+            cbFields = new ComboBox();
+            lblField = new Label();
+            butChooseTable2 = new Button();
+            butChooseField = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // tabControl
             // 
             tabControl.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            tabControl.Location = new Point(10, 117);
-            tabControl.Margin = new Padding(3, 2, 3, 2);
+            tabControl.Location = new Point(11, 156);
             tabControl.Name = "tabControl";
             tabControl.SelectedIndex = 0;
-            tabControl.Size = new Size(916, 18);
+            tabControl.Size = new Size(893, 24);
             tabControl.TabIndex = 0;
             tabControl.SelectedIndexChanged += tabControl_SelectedIndexChanged;
             // 
@@ -78,76 +95,43 @@
             tabPage2.Size = new Size(200, 100);
             tabPage2.TabIndex = 0;
             // 
-            // butOpen
-            // 
-            butOpen.Location = new Point(11, 10);
-            butOpen.Margin = new Padding(3, 2, 3, 2);
-            butOpen.Name = "butOpen";
-            butOpen.Size = new Size(66, 27);
-            butOpen.TabIndex = 1;
-            butOpen.Text = "Open";
-            butOpen.UseVisualStyleBackColor = true;
-            butOpen.Click += butOpen_Click;
-            // 
             // butCreate
             // 
-            butCreate.Location = new Point(283, 11);
-            butCreate.Margin = new Padding(3, 2, 3, 2);
+            butCreate.Location = new Point(221, 38);
             butCreate.Name = "butCreate";
-            butCreate.Size = new Size(80, 26);
+            butCreate.Size = new Size(91, 35);
             butCreate.TabIndex = 2;
             butCreate.Text = "Create DB";
             butCreate.UseVisualStyleBackColor = true;
+            butCreate.Visible = false;
             butCreate.Click += butCreate_Click;
             // 
             // butAddColumn
             // 
-            butAddColumn.Location = new Point(706, 9);
-            butAddColumn.Margin = new Padding(3, 2, 3, 2);
+            butAddColumn.Location = new Point(333, 115);
             butAddColumn.Name = "butAddColumn";
-            butAddColumn.Size = new Size(94, 28);
+            butAddColumn.Size = new Size(121, 35);
             butAddColumn.TabIndex = 3;
             butAddColumn.Text = "Add column";
             butAddColumn.UseVisualStyleBackColor = true;
+            butAddColumn.Visible = false;
             butAddColumn.Click += butAddColumn_Click;
-            // 
-            // butAddRow
-            // 
-            butAddRow.Location = new Point(950, 10);
-            butAddRow.Margin = new Padding(3, 2, 3, 2);
-            butAddRow.Name = "butAddRow";
-            butAddRow.Size = new Size(89, 27);
-            butAddRow.TabIndex = 4;
-            butAddRow.Text = "Add row";
-            butAddRow.UseVisualStyleBackColor = true;
-            butAddRow.Click += butAddRow_Click;
             // 
             // tbCreateDBName
             // 
-            tbCreateDBName.Location = new Point(190, 16);
-            tbCreateDBName.Margin = new Padding(3, 2, 3, 2);
+            tbCreateDBName.Location = new Point(102, 42);
             tbCreateDBName.Name = "tbCreateDBName";
-            tbCreateDBName.Size = new Size(88, 23);
+            tbCreateDBName.Size = new Size(100, 27);
             tbCreateDBName.TabIndex = 5;
-            // 
-            // butAddTable
-            // 
-            butAddTable.Location = new Point(447, 7);
-            butAddTable.Margin = new Padding(3, 2, 3, 2);
-            butAddTable.Name = "butAddTable";
-            butAddTable.Size = new Size(103, 28);
-            butAddTable.TabIndex = 6;
-            butAddTable.Text = "Add table";
-            butAddTable.UseVisualStyleBackColor = true;
-            butAddTable.Click += butAddTable_Click;
+            tbCreateDBName.Visible = false;
             // 
             // tbAddTableName
             // 
-            tbAddTableName.Location = new Point(556, 14);
-            tbAddTableName.Margin = new Padding(3, 2, 3, 2);
+            tbAddTableName.Location = new Point(102, 91);
             tbAddTableName.Name = "tbAddTableName";
-            tbAddTableName.Size = new Size(117, 23);
+            tbAddTableName.Size = new Size(100, 27);
             tbAddTableName.TabIndex = 7;
+            tbAddTableName.Visible = false;
             // 
             // dataGridView
             // 
@@ -155,12 +139,11 @@
             dataGridView.AllowUserToDeleteRows = false;
             dataGridView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView.Location = new Point(11, 140);
-            dataGridView.Margin = new Padding(3, 2, 3, 2);
+            dataGridView.Location = new Point(13, 187);
             dataGridView.Name = "dataGridView";
             dataGridView.RowHeadersWidth = 51;
             dataGridView.RowTemplate.Height = 29;
-            dataGridView.Size = new Size(915, 275);
+            dataGridView.Size = new Size(891, 367);
             dataGridView.TabIndex = 8;
             dataGridView.CellBeginEdit += dataGridView_CellBeginEdit;
             dataGridView.CellEndEdit += dataGridView_CellEndEdit;
@@ -170,63 +153,41 @@
             cbTypes.DropDownStyle = ComboBoxStyle.DropDownList;
             cbTypes.FormattingEnabled = true;
             cbTypes.Items.AddRange(new object[] { "Integer", "Real", "Char", "String", "Enum", "Email" });
-            cbTypes.Location = new Point(806, 16);
-            cbTypes.Margin = new Padding(3, 2, 3, 2);
+            cbTypes.Location = new Point(333, 37);
             cbTypes.Name = "cbTypes";
-            cbTypes.Size = new Size(106, 23);
+            cbTypes.Size = new Size(121, 28);
             cbTypes.TabIndex = 9;
+            cbTypes.Visible = false;
             // 
             // tbAddColumnName
             // 
-            tbAddColumnName.Location = new Point(806, 46);
-            tbAddColumnName.Margin = new Padding(3, 2, 3, 2);
+            tbAddColumnName.Location = new Point(333, 80);
             tbAddColumnName.Name = "tbAddColumnName";
-            tbAddColumnName.Size = new Size(106, 23);
+            tbAddColumnName.Size = new Size(121, 27);
             tbAddColumnName.TabIndex = 10;
+            tbAddColumnName.Visible = false;
             // 
             // butDeleteColumn
             // 
-            butDeleteColumn.Location = new Point(706, 79);
-            butDeleteColumn.Margin = new Padding(3, 2, 3, 2);
+            butDeleteColumn.Location = new Point(910, 186);
             butDeleteColumn.Name = "butDeleteColumn";
-            butDeleteColumn.Size = new Size(102, 26);
+            butDeleteColumn.Size = new Size(117, 35);
             butDeleteColumn.TabIndex = 13;
             butDeleteColumn.Text = "Delete column";
             butDeleteColumn.UseVisualStyleBackColor = true;
+            butDeleteColumn.Visible = false;
             butDeleteColumn.Click += butDeleteColumn_Click;
             // 
             // butDeleteRow
             // 
-            butDeleteRow.Location = new Point(950, 46);
-            butDeleteRow.Margin = new Padding(3, 2, 3, 2);
+            butDeleteRow.Location = new Point(910, 115);
             butDeleteRow.Name = "butDeleteRow";
-            butDeleteRow.Size = new Size(89, 28);
+            butDeleteRow.Size = new Size(117, 35);
             butDeleteRow.TabIndex = 14;
             butDeleteRow.Text = "Delete row";
             butDeleteRow.UseVisualStyleBackColor = true;
+            butDeleteRow.Visible = false;
             butDeleteRow.Click += butDeleteRow_Click;
-            // 
-            // butDeleteTable
-            // 
-            butDeleteTable.Location = new Point(447, 42);
-            butDeleteTable.Margin = new Padding(3, 2, 3, 2);
-            butDeleteTable.Name = "butDeleteTable";
-            butDeleteTable.Size = new Size(103, 28);
-            butDeleteTable.TabIndex = 15;
-            butDeleteTable.Text = "Delete table";
-            butDeleteTable.UseVisualStyleBackColor = true;
-            butDeleteTable.Click += butDeleteTable_Click;
-            // 
-            // butSaveDB
-            // 
-            butSaveDB.Location = new Point(82, 10);
-            butSaveDB.Margin = new Padding(3, 2, 3, 2);
-            butSaveDB.Name = "butSaveDB";
-            butSaveDB.Size = new Size(68, 27);
-            butSaveDB.TabIndex = 16;
-            butSaveDB.Text = "Save";
-            butSaveDB.UseVisualStyleBackColor = true;
-            butSaveDB.Click += butSaveDB_Click;
             // 
             // ofdOpenDB
             // 
@@ -235,47 +196,237 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(18, 66);
+            label1.Location = new Point(11, 45);
             label1.Name = "label1";
-            label1.Size = new Size(61, 15);
+            label1.Size = new Size(79, 20);
             label1.TabIndex = 17;
             label1.Text = "Database: ";
             // 
             // lblDbName
             // 
             lblDbName.AutoSize = true;
-            lblDbName.Location = new Point(82, 66);
+            lblDbName.Location = new Point(96, 45);
             lblDbName.Name = "lblDbName";
-            lblDbName.Size = new Size(0, 15);
+            lblDbName.Size = new Size(0, 20);
             lblDbName.TabIndex = 18;
+            // 
+            // menuStrip1
+            // 
+            menuStrip1.ImageScalingSize = new Size(20, 20);
+            menuStrip1.Items.AddRange(new ToolStripItem[] { openToolStripMenuItem, tableToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(1305, 28);
+            menuStrip1.TabIndex = 19;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // openToolStripMenuItem
+            // 
+            openToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { createTSMI, openTSMI, saveTSMI });
+            openToolStripMenuItem.Name = "openToolStripMenuItem";
+            openToolStripMenuItem.Size = new Size(46, 24);
+            openToolStripMenuItem.Text = "File";
+            // 
+            // createTSMI
+            // 
+            createTSMI.Name = "createTSMI";
+            createTSMI.Size = new Size(135, 26);
+            createTSMI.Text = "Create";
+            createTSMI.Click += createToolStripMenuItem_Click;
+            // 
+            // openTSMI
+            // 
+            openTSMI.Name = "openTSMI";
+            openTSMI.Size = new Size(135, 26);
+            openTSMI.Text = "Open";
+            openTSMI.Click += openToolStripMenuItem_Click;
+            // 
+            // saveTSMI
+            // 
+            saveTSMI.Name = "saveTSMI";
+            saveTSMI.Size = new Size(135, 26);
+            saveTSMI.Text = "Save";
+            saveTSMI.Click += saveToolStripMenuItem_Click;
+            // 
+            // tableToolStripMenuItem
+            // 
+            tableToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { createToolStripMenuItem, deleteToolStripMenuItem, addColumnToolStripMenuItem, addRowToolStripMenuItem, unionOfTablesToolStripMenuItem });
+            tableToolStripMenuItem.Name = "tableToolStripMenuItem";
+            tableToolStripMenuItem.Size = new Size(58, 24);
+            tableToolStripMenuItem.Text = "Table";
+            tableToolStripMenuItem.Visible = false;
+            // 
+            // createToolStripMenuItem
+            // 
+            createToolStripMenuItem.Name = "createToolStripMenuItem";
+            createToolStripMenuItem.Size = new Size(193, 26);
+            createToolStripMenuItem.Text = "Create";
+            createToolStripMenuItem.Click += createToolStripMenuItem_Click_1;
+            // 
+            // deleteToolStripMenuItem
+            // 
+            deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            deleteToolStripMenuItem.Size = new Size(193, 26);
+            deleteToolStripMenuItem.Text = "Delete";
+            deleteToolStripMenuItem.Click += deleteToolStripMenuItem_Click;
+            // 
+            // addColumnToolStripMenuItem
+            // 
+            addColumnToolStripMenuItem.Name = "addColumnToolStripMenuItem";
+            addColumnToolStripMenuItem.Size = new Size(193, 26);
+            addColumnToolStripMenuItem.Text = "Add column";
+            addColumnToolStripMenuItem.Click += addColumnToolStripMenuItem_Click;
+            // 
+            // addRowToolStripMenuItem
+            // 
+            addRowToolStripMenuItem.Name = "addRowToolStripMenuItem";
+            addRowToolStripMenuItem.Size = new Size(193, 26);
+            addRowToolStripMenuItem.Text = "Add row";
+            addRowToolStripMenuItem.Click += addRowToolStripMenuItem_Click;
+            // 
+            // unionOfTablesToolStripMenuItem
+            // 
+            unionOfTablesToolStripMenuItem.Name = "unionOfTablesToolStripMenuItem";
+            unionOfTablesToolStripMenuItem.Size = new Size(193, 26);
+            unionOfTablesToolStripMenuItem.Text = "Union of tables";
+            unionOfTablesToolStripMenuItem.Click += unionOfTablesToolStripMenuItem_Click;
+            // 
+            // butCreateTable
+            // 
+            butCreateTable.Location = new Point(221, 89);
+            butCreateTable.Name = "butCreateTable";
+            butCreateTable.Size = new Size(91, 33);
+            butCreateTable.TabIndex = 20;
+            butCreateTable.Text = "Add table";
+            butCreateTable.UseVisualStyleBackColor = true;
+            butCreateTable.Visible = false;
+            butCreateTable.Click += buttonAddTable_Click;
+            // 
+            // cbTable1
+            // 
+            cbTable1.FormattingEnabled = true;
+            cbTable1.Location = new Point(544, 41);
+            cbTable1.Name = "cbTable1";
+            cbTable1.Size = new Size(151, 28);
+            cbTable1.TabIndex = 21;
+            cbTable1.Visible = false;
+            // 
+            // lblTable1
+            // 
+            lblTable1.AutoSize = true;
+            lblTable1.Location = new Point(488, 45);
+            lblTable1.Name = "lblTable1";
+            lblTable1.Size = new Size(56, 20);
+            lblTable1.TabIndex = 22;
+            lblTable1.Text = "Table 1";
+            lblTable1.Visible = false;
+            // 
+            // lblTable2
+            // 
+            lblTable2.AutoSize = true;
+            lblTable2.Location = new Point(488, 80);
+            lblTable2.Name = "lblTable2";
+            lblTable2.Size = new Size(56, 20);
+            lblTable2.TabIndex = 23;
+            lblTable2.Text = "Table 2";
+            lblTable2.Visible = false;
+            // 
+            // cbTable2
+            // 
+            cbTable2.FormattingEnabled = true;
+            cbTable2.Location = new Point(544, 75);
+            cbTable2.Name = "cbTable2";
+            cbTable2.Size = new Size(151, 28);
+            cbTable2.TabIndex = 24;
+            cbTable2.Visible = false;
+            // 
+            // butUnion
+            // 
+            butUnion.Location = new Point(710, 109);
+            butUnion.Name = "butUnion";
+            butUnion.Size = new Size(156, 29);
+            butUnion.TabIndex = 25;
+            butUnion.Text = "Union";
+            butUnion.UseVisualStyleBackColor = true;
+            butUnion.Visible = false;
+            butUnion.Click += butUnion_Click;
+            // 
+            // cbFields
+            // 
+            cbFields.FormattingEnabled = true;
+            cbFields.Location = new Point(544, 110);
+            cbFields.Name = "cbFields";
+            cbFields.Size = new Size(151, 28);
+            cbFields.TabIndex = 26;
+            cbFields.Visible = false;
+            // 
+            // lblField
+            // 
+            lblField.AutoSize = true;
+            lblField.Location = new Point(488, 113);
+            lblField.Name = "lblField";
+            lblField.Size = new Size(41, 20);
+            lblField.TabIndex = 27;
+            lblField.Text = "Field";
+            lblField.Visible = false;
+            // 
+            // butChooseTable2
+            // 
+            butChooseTable2.Location = new Point(710, 40);
+            butChooseTable2.Name = "butChooseTable2";
+            butChooseTable2.Size = new Size(156, 29);
+            butChooseTable2.TabIndex = 28;
+            butChooseTable2.Text = "Choose second table";
+            butChooseTable2.UseVisualStyleBackColor = true;
+            butChooseTable2.Visible = false;
+            butChooseTable2.Click += butChooseTable2_Click;
+            // 
+            // butChooseField
+            // 
+            butChooseField.Location = new Point(710, 74);
+            butChooseField.Name = "butChooseField";
+            butChooseField.Size = new Size(156, 29);
+            butChooseField.TabIndex = 29;
+            butChooseField.Text = "Choose field";
+            butChooseField.UseVisualStyleBackColor = true;
+            butChooseField.Visible = false;
+            butChooseField.Click += butChooseField_Click;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1142, 376);
+            ClientSize = new Size(1305, 501);
+            Controls.Add(butChooseField);
+            Controls.Add(butChooseTable2);
+            Controls.Add(lblField);
+            Controls.Add(cbFields);
+            Controls.Add(butUnion);
+            Controls.Add(cbTable2);
+            Controls.Add(lblTable2);
+            Controls.Add(lblTable1);
+            Controls.Add(cbTable1);
+            Controls.Add(butCreateTable);
             Controls.Add(lblDbName);
             Controls.Add(label1);
-            Controls.Add(butSaveDB);
-            Controls.Add(butDeleteTable);
             Controls.Add(butDeleteRow);
             Controls.Add(butDeleteColumn);
             Controls.Add(tbAddColumnName);
             Controls.Add(cbTypes);
             Controls.Add(dataGridView);
             Controls.Add(tbAddTableName);
-            Controls.Add(butAddTable);
             Controls.Add(tbCreateDBName);
-            Controls.Add(butAddRow);
             Controls.Add(butAddColumn);
             Controls.Add(butCreate);
-            Controls.Add(butOpen);
             Controls.Add(tabControl);
-            Margin = new Padding(3, 2, 3, 2);
+            Controls.Add(menuStrip1);
+            MainMenuStrip = menuStrip1;
             Name = "Form1";
             Text = "DBMS";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -285,12 +436,9 @@
         private TabControl tabControl;
         private TabPage tabPage1;
         private TabPage tabPage2;
-        private Button butOpen;
         private Button butCreate;
         private Button butAddColumn;
-        private Button butAddRow;
         private TextBox tbCreateDBName;
-        private Button butAddTable;
         private TextBox tbAddTableName;
         private DataGridView dataGridView;
         private ComboBox cbTypes;
@@ -298,11 +446,31 @@
         private OpenFileDialog ofdChooseFilePath;
         private Button butDeleteColumn;
         private Button butDeleteRow;
-        private Button butDeleteTable;
         private SaveFileDialog sfdSaveDB;
-        private Button butSaveDB;
         private OpenFileDialog ofdOpenDB;
         private Label label1;
         private Label lblDbName;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem openToolStripMenuItem;
+        private ToolStripMenuItem openTSMI;
+        private ToolStripMenuItem saveTSMI;
+        private FontDialog fontDialog1;
+        private ToolStripMenuItem createTSMI;
+        private ToolStripMenuItem tableToolStripMenuItem;
+        private ToolStripMenuItem createToolStripMenuItem;
+        private ToolStripMenuItem deleteToolStripMenuItem;
+        private Button butCreateTable;
+        private ToolStripMenuItem addColumnToolStripMenuItem;
+        private ToolStripMenuItem addRowToolStripMenuItem;
+        private ToolStripMenuItem unionOfTablesToolStripMenuItem;
+        private ComboBox cbTable1;
+        private Label lblTable1;
+        private Label lblTable2;
+        private ComboBox cbTable2;
+        private Button butUnion;
+        private ComboBox cbFields;
+        private Label lblField;
+        private Button butChooseTable2;
+        private Button butChooseField;
     }
 }
