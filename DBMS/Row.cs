@@ -1,6 +1,6 @@
 ﻿namespace DBMS
 {
-    internal class Row
+    public class Row
     {
         public List<string> RowValues;
 

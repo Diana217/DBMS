@@ -1,6 +1,6 @@
 ﻿namespace DBMS
 {
-    internal class Database
+    public class Database
     {
         public string DBName;
         public List<Table> Tables;

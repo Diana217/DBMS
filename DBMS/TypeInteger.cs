@@ -1,6 +1,6 @@
 ﻿namespace DBMS
 {
-    internal class TypeInteger : Type
+    public class TypeInteger : Type
     {
         public override bool Validate(string value)
         {

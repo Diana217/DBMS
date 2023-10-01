@@ -1,6 +1,6 @@
 ﻿namespace DBMS
 {
-    internal class TypeChar : Type
+    public class TypeChar : Type
     {
         public override bool Validate(string value)
         {

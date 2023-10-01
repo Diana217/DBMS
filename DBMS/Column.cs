@@ -1,6 +1,6 @@
 ﻿namespace DBMS
 {
-    internal class Column
+    public class Column
     {
         public string ColName;
         public Type ColType;

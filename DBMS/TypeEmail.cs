@@ -2,7 +2,7 @@
 
 namespace DBMS
 {
-    internal class TypeEmail : Type
+    public class TypeEmail : Type
     {
         public override bool Validate(string value)
         {

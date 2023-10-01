@@ -1,8 +1,8 @@
 ﻿namespace DBMS
 {
-    internal class DBManager
+    public class DBManager
     {
-        Database db;
+        public Database db;
 
         public bool CreateDB(string dbname)
         {

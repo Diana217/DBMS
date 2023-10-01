@@ -1,6 +1,6 @@
 ﻿namespace DBMS
 {
-    internal class TypeReal : Type
+    public class TypeReal : Type
     {
         public override bool Validate(string value)
         {

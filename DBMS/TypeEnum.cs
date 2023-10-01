@@ -1,6 +1,6 @@
 ﻿namespace DBMS
 {
-    internal class TypeEnum : Type
+    public class TypeEnum : Type
     {
         public override bool Validate(string value)
         {
