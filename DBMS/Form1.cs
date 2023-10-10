@@ -254,7 +254,7 @@ namespace DBMS
             lblTable2.Visible = true;
             cbTable2.Visible = true;
             butChooseField.Visible = true;
-            var list = dbManager.GetTableNameList(); 
+            var list = dbManager.GetTableNameList();
             list.Remove(cbTable1.Text);
             cbTable2.Items.AddRange(list.ToArray());
         }

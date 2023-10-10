@@ -108,7 +108,7 @@
             // 
             // butAddColumn
             // 
-            butAddColumn.Location = new Point(333, 115);
+            butAddColumn.Location = new Point(407, 110);
             butAddColumn.Name = "butAddColumn";
             butAddColumn.Size = new Size(121, 35);
             butAddColumn.TabIndex = 3;
@@ -153,7 +153,7 @@
             cbTypes.DropDownStyle = ComboBoxStyle.DropDownList;
             cbTypes.FormattingEnabled = true;
             cbTypes.Items.AddRange(new object[] { "Integer", "Real", "Char", "String", "Enum", "Email" });
-            cbTypes.Location = new Point(333, 37);
+            cbTypes.Location = new Point(407, 32);
             cbTypes.Name = "cbTypes";
             cbTypes.Size = new Size(121, 28);
             cbTypes.TabIndex = 9;
@@ -161,7 +161,7 @@
             // 
             // tbAddColumnName
             // 
-            tbAddColumnName.Location = new Point(333, 80);
+            tbAddColumnName.Location = new Point(407, 75);
             tbAddColumnName.Name = "tbAddColumnName";
             tbAddColumnName.Size = new Size(121, 27);
             tbAddColumnName.TabIndex = 10;
@@ -169,7 +169,7 @@
             // 
             // butDeleteColumn
             // 
-            butDeleteColumn.Location = new Point(910, 186);
+            butDeleteColumn.Location = new Point(910, 223);
             butDeleteColumn.Name = "butDeleteColumn";
             butDeleteColumn.Size = new Size(117, 35);
             butDeleteColumn.TabIndex = 13;
@@ -180,7 +180,7 @@
             // 
             // butDeleteRow
             // 
-            butDeleteRow.Location = new Point(910, 115);
+            butDeleteRow.Location = new Point(910, 182);
             butDeleteRow.Name = "butDeleteRow";
             butDeleteRow.Size = new Size(117, 35);
             butDeleteRow.TabIndex = 14;
@@ -305,7 +305,7 @@
             // cbTable1
             // 
             cbTable1.FormattingEnabled = true;
-            cbTable1.Location = new Point(544, 41);
+            cbTable1.Location = new Point(630, 36);
             cbTable1.Name = "cbTable1";
             cbTable1.Size = new Size(151, 28);
             cbTable1.TabIndex = 21;
@@ -314,7 +314,7 @@
             // lblTable1
             // 
             lblTable1.AutoSize = true;
-            lblTable1.Location = new Point(488, 45);
+            lblTable1.Location = new Point(574, 40);
             lblTable1.Name = "lblTable1";
             lblTable1.Size = new Size(56, 20);
             lblTable1.TabIndex = 22;
@@ -324,7 +324,7 @@
             // lblTable2
             // 
             lblTable2.AutoSize = true;
-            lblTable2.Location = new Point(488, 80);
+            lblTable2.Location = new Point(574, 75);
             lblTable2.Name = "lblTable2";
             lblTable2.Size = new Size(56, 20);
             lblTable2.TabIndex = 23;
@@ -334,7 +334,7 @@
             // cbTable2
             // 
             cbTable2.FormattingEnabled = true;
-            cbTable2.Location = new Point(544, 75);
+            cbTable2.Location = new Point(630, 70);
             cbTable2.Name = "cbTable2";
             cbTable2.Size = new Size(151, 28);
             cbTable2.TabIndex = 24;
@@ -342,7 +342,7 @@
             // 
             // butUnion
             // 
-            butUnion.Location = new Point(710, 109);
+            butUnion.Location = new Point(796, 104);
             butUnion.Name = "butUnion";
             butUnion.Size = new Size(156, 29);
             butUnion.TabIndex = 25;
@@ -354,7 +354,7 @@
             // cbFields
             // 
             cbFields.FormattingEnabled = true;
-            cbFields.Location = new Point(544, 110);
+            cbFields.Location = new Point(630, 105);
             cbFields.Name = "cbFields";
             cbFields.Size = new Size(151, 28);
             cbFields.TabIndex = 26;
@@ -363,7 +363,7 @@
             // lblField
             // 
             lblField.AutoSize = true;
-            lblField.Location = new Point(488, 113);
+            lblField.Location = new Point(574, 108);
             lblField.Name = "lblField";
             lblField.Size = new Size(41, 20);
             lblField.TabIndex = 27;
@@ -372,7 +372,7 @@
             // 
             // butChooseTable2
             // 
-            butChooseTable2.Location = new Point(710, 40);
+            butChooseTable2.Location = new Point(796, 35);
             butChooseTable2.Name = "butChooseTable2";
             butChooseTable2.Size = new Size(156, 29);
             butChooseTable2.TabIndex = 28;
@@ -383,7 +383,7 @@
             // 
             // butChooseField
             // 
-            butChooseField.Location = new Point(710, 74);
+            butChooseField.Location = new Point(796, 69);
             butChooseField.Name = "butChooseField";
             butChooseField.Size = new Size(156, 29);
             butChooseField.TabIndex = 29;
