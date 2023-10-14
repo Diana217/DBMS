@@ -207,6 +207,9 @@
                     {
                         var ind1 = table1.Columns.IndexOf(col1);
                         var ind2 = table2.Columns.IndexOf(col2);
+                        bool isEnum = false;
+                        if(col1.ColType is TypeEnum && col2.ColType is TypeEnum)
+                            isEnum = true;
                         if (ind1 != -1 && ind2 != -1)
                         {
                             foreach (var row1 in table1.Rows)
@@ -215,7 +218,19 @@
                                 foreach (var row2 in table2.Rows)
                                 {
                                     var value2 = row2.RowValues[ind2];
-                                    if (value1 == value2)
+                                    if (isEnum)
+                                    {
+                                        var enum1 = value1.Split(",");
+                                        var enum2 = value2.Split(",");
+                                        if (enum1.All(x => enum2.Contains(x)) && enum2.All(x => enum1.Contains(x)))
+                                        {
+                                            var newRow = new Row();
+                                            newRow.RowValues.AddRange(row1.RowValues);
+                                            newRow.RowValues.AddRange(row2.RowValues);
+                                            table.Rows.Add(newRow);
+                                        }
+                                    }
+                                    else if (value1 == value2)
                                     {
                                         var newRow = new Row();
                                         newRow.RowValues.AddRange(row1.RowValues);
